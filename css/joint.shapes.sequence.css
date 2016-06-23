@@ -1,0 +1,8 @@
+.element .sequence-controller-remove, #project-assets .sequence-controller-remove{
+    display: none;
+    cursor: pointer
+}
+
+.element:hover .sequence-controller-remove {
+    display: inline;
+}
