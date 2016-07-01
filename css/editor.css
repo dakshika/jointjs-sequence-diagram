@@ -66,6 +66,16 @@ html, body {
     width: 10em;
 }
 
+/****************************
+/ Pane related styles
+/***************************/
+
+.pane-close{
+    padding: 2px;
+    float: right;
+    cursor: pointer;
+}
+
 .pretty-split-pane-frame {
     box-sizing: border-box;
     width: 100%;
@@ -85,4 +95,82 @@ html, body {
     height: 100%;
     padding: 0 .3em;
     overflow: hidden;
+}
+
+/*******************************
+/ resize controller styles
+/**********************/
+.ui-resize{
+    border: 1px dashed #FDE3A7;
+    position: absolute;
+    z-index: 10;
+}
+
+.ui-resize .resize{
+    width: 4px;
+    height: 4px;
+    background-color: #95a5a6;
+    border: 1.5px solid #353E50;
+    position: absolute;
+}
+
+.ui-resize .resize[data-position="top"] {
+    border-radius: 0px 0px 5px 5px;
+    left: 50%;
+    top: -1px;
+    cursor: n-resize;
+    z-index: 11;
+}
+
+.ui-resize .resize[data-position="top-right"] {
+    border-radius: 0px 0px 0px 5px;
+    right: 0px;
+    top: -1px;
+    cursor: ne-resize;
+}
+
+.ui-resize .resize[data-position="right"] {
+    border-radius: 5px 0px 0px 5px;
+    top: 50%;
+    right: -1px;
+    cursor: e-resize;
+}
+
+.ui-resize .resize[data-position="bottom-right"] {
+    border-radius: 5px 0px 0px 0px;
+    bottom: 0px;
+    right: 0px;
+    cursor: se-resize;
+}
+
+.ui-resize .resize[data-position="bottom"] {
+    border-radius: 5px 5px 0px 5px;
+    bottom: 0px;
+    left: 50%;
+    cursor: s-resize;
+}
+
+.ui-resize .resize[data-position="bottom-left"] {
+    border-radius: 0px 5px 0px 0px;
+    bottom: 0px;
+    left: 0;
+    cursor: sw-resize;
+}
+
+.ui-resize .resize[data-position="left"] {
+    border-radius: 0px 5px 5px 0px;
+    top: 50%;
+    left: 0px;
+    cursor: w-resize;
+}
+
+.ui-resize .resize[data-position="top-left"] {
+    border-radius: 0px 0px 5px 0px;
+    top: 0px;
+    left: 0px;
+    cursor: nw-resize;
+}
+
+.element{
+    z-index: 0;
 }
