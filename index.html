@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Jointjs Sequence Diagram Editor</title>
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="Dakshika Jayathilaka">
+
+    <link rel="stylesheet" type="text/css" href="libs/joint-v0.9.6/joint.css" />
+    <link rel="stylesheet" type="text/css" href="libs/font-awesome-4.6.3/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="libs/split-pane-v0.9.3/split-pane.css" />
+    <link rel="stylesheet" type="text/css" href="libs/nanoScrollerJS-v0.8.7/nanoscroller.css" />
+    <link rel="stylesheet" type="text/css" href="css/editor.css" />
+    <link rel="stylesheet" type="text/css" href="css/joint.shapes.sequence.css" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<div class="editor-top-bar">
+    <img src="images/logo.svg" alt="wso2" title="wso2" class="logo"> <h1>ESB Editor</h1>
+    <div class="menu-items">
+
+    </div>
+</div>
+<div class="pretty-split-pane-frame"><!-- This div is added for styling purposes only. It's not part of the split-pane plugin. -->
+    <div class="split-pane fixed-left ">
+        <div class="split-pane-component nano" id="left-component">
+            <div class="nano-content">
+                <div class="pane-heading">Project Assets <i class="fa fa-sign-in  fa-rotate-180 pane-close"></i></div>
+                <div class="pane-content" id="project-assets">
+
+                </div>
+            </div>
+        </div>
+        <div class="split-pane-divider" id="my-divider"></div>
+        <div class="split-pane-component" id="right-component">
+            <div class="split-pane fixed-right">
+                <div class="split-pane-component " id="inner-left-component">
+                    <div class="pretty-split-pane-component-inner nano" style="background-color: #33373B">
+
+                        <div class="nano-content" id="editor-main" >
+
+                        </div>
+                    </div>
+                </div>
+                <div class="split-pane-divider" id="inner-my-divider"></div>
+                <div class="split-pane-component" id="inner-right-component">
+                    <div class="pretty-split-pane-component-inner">
+                        <div class="pane-heading">Asset Properties </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="libs/jquery-v2.0.3/jquery.min.js"></script>
+<script src="libs/split-pane-v0.9.3/split-pane.js"></script>
+<script src="libs/nanoScrollerJS-v0.8.7/jquery.nanoscroller.min.js"></script>
+<script src="libs/lodash-v3.10.1/lodash.min.js"></script>
+<script src="libs/backbone-v1.2.1/backbone-min.js"></script>
+<script src="libs/joint-v0.9.6/joint.js"></script>
+<script src="js/joint.extend.js"></script>
+<script src="js/joint.shapes.sequence.js"></script>
+<script src="js/editor.js"></script>
+
+</body>
+</html>
