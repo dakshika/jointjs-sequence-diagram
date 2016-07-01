@@ -1,5 +1,13 @@
+/**
+ * Define base object for sequences
+ * @type {{}}
+ */
 joint.shapes.sequence = {};
 
+/**
+ * Add basic wrapper for sequence elements remove handler
+ * @type {void|*}
+ */
 joint.shapes.sequence.sequenceElement = joint.shapes.basic.Generic.extend({
 
     toolMarkup: ['<g class="sequence-controllers">',
@@ -10,31 +18,74 @@ joint.shapes.sequence.sequenceElement = joint.shapes.basic.Generic.extend({
         '</g>'].join(''),
 
     defaults: joint.util.deepSupplement({
-        attrs: {
-
-        },
+        attrs: {},
     }, joint.shapes.basic.Generic.prototype.defaults)
 
 });
 
+/**
+ * Add Link customization for jointjs link
+ * @type {void|*}
+ */
+joint.shapes.sequence.Link = joint.dia.Link.extend({
+
+    defaults: joint.util.deepSupplement({
+
+        type: 'sequence.Link',
+        attrs: {
+            '.connection': {stroke: '#96281B'},
+            '.marker-target': {fill: '#96281B', stroke: '#D2527F', d: 'M 10 0 L 0 5 L 10 10 z'}
+        }
+
+    }, joint.dia.Link.prototype.defaults)
+});
+
+
+/**
+ * Add frame block
+ * @type {void|*}
+ */
+joint.shapes.sequence.frame = joint.shapes.sequence.sequenceElement.extend({
+    markup: '<g class="rotatable"><g class="scalable"><rect class="frame"/></g><text/></g>',
+
+    defaults: joint.util.deepSupplement({
+        type: 'sequence.Frame',
+        size: {width: 120, height: 100},
+        attrs: {
+            rect: {width: 100, height: 40, fill: 'rgba(255, 255, 255, 0)', stroke: 'grey'},
+        },
+    }, joint.shapes.sequence.sequenceElement.prototype.defaults)
+});
+
+
+/**
+ * Add Participant block
+ * @type {void|*}
+ */
 joint.shapes.sequence.Participant = joint.shapes.sequence.sequenceElement.extend({
-    markup: '<g class="rotatable"><g class="scalable"><rect class="group"/></g><path class="wire"/><text/></g>',
+    markup: '<g class="rotatable"><g class="scalable"><line class="wire"/></g><rect class="group"/><text/></g>',
 
     defaults: joint.util.deepSupplement({
         type: 'sequence.Participant',
-        position:{ x: 50, y:50},
-        size: { width: 100, height: 30 },
+        position: {x: 50, y: 50},
+        size: {width: 5, height: 180},
         attrs: {
-            '.group': { fill: '#EFEFEF', stroke: 'black', 'stroke-width': 1,  width: 100, height: 20, magnet:'passive' },
-            '.wire': { 'ref-dy':-50, 'x-alignment': 'middle', d: 'm52,53l0,254l0,-254z', stroke: 'black' , 'stroke-dasharray':'5,5', magnet:true, 'stroke-width': 2,}
+            text: {text: 'Participant ', fill: 'black', 'ref-dx': -40, 'ref-y': 10},
+            rect: {width: 100, height: 40, x: -50},
+            '.group': {fill: '#fff', stroke: '#96281B', 'stroke-width': 1, magnet: 'passive'},
+            '.wire': {x1: "0", y1: "2", stroke: '#96281B', 'stroke-dasharray': '8,5', magnet: true, 'stroke-width': 2}
         }
     }, joint.shapes.sequence.sequenceElement.prototype.defaults)
 
 });
 
+/**
+ * Override default element view
+ * @type {void|*}
+ */
 joint.shapes.sequence.sequenceElementView = joint.dia.ElementView.extend({
 
-    initialize: function() {
+    initialize: function () {
         joint.dia.ElementView.prototype.initialize.apply(this, arguments);
     },
 
@@ -74,5 +125,6 @@ joint.shapes.sequence.sequenceElementView = joint.dia.ElementView.extend({
     }
 
 });
+
 
 joint.shapes.sequence.ParticipantView = joint.shapes.sequence.sequenceElementView;
